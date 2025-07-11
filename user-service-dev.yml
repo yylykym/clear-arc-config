@@ -21,14 +21,6 @@ spring:
         healthCheckInterval: 10s
         prefer-ip-address: true
 
-logging:
-  file:
-    name: logs/application.log
-  level:
-    root: INFO
-    org.springframework.web: WARN
-    com.yylykym: DEBUG  # 你的业务包
-
 management:
   endpoints:
     web:
