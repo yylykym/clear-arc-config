@@ -8,3 +8,8 @@ spring:
         healthCheckPath: /actuator/health
         healthCheckInterval: 10s
         prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
