@@ -5,7 +5,10 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
     default-property-inclusion: non_null
-
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=30s
   mvc:
     format:
       date: iso
