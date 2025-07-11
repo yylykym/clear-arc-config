@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: dev
+
+  jackson:
+    serialization:
+      indent_output: true
+    deserialization:
+      fail-on-unknown-properties: false
+    default-property-inclusion: non_null
+
+  mvc:
+    format:
+      date: iso
+      date-time: iso
+
+  output:
+    ansi:
+      enabled: always  # 控制台彩色日志
+
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+
+

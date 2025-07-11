@@ -1,0 +1,31 @@
+# user-service/bootstrap/src/main/resources/application.yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/users
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 10s
+        prefer-ip-address: true
+
+logging:
+  file:
+    name: logs/application.log
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    com.yylykym: DEBUG  # 你的业务包

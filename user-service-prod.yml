@@ -1,0 +1,7 @@
+logging:
+  file:
+    name: logs/application.log
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    com.yylykym: prod  # 你的业务包
