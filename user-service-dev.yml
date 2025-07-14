@@ -31,7 +31,7 @@ management:
       probability: 1.0 # 打开全采样，生产建议降低
   otlp:
     tracing:
-      endpoint: http://localhost:4318/v1/traces # Tempo 默认接收地址
+      endpoint: http://localhost:4317/v1/traces # Tempo 默认接收地址
       compression: gzip
       timeout: 10s
 
