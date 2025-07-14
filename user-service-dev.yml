@@ -37,6 +37,3 @@ management:
       compression: gzip
       timeout: 10s
 
-logging:
-  pattern:
-    level: "%5p [traceId=%X{traceId}, spanId=%X{spanId}]"
