@@ -1,0 +1,38 @@
+# auth-service/bootstrap/src/main/resources/application.yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: false
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 10s
+        prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0 # 打开全采样，生产建议降低
+  otlp:
+    logs:
+    exporter: none
+    tracing:
+      endpoint: http://localhost:4318/v1/traces # Tempo 默认接收地址
+      compression: gzip
+      timeout: 10s
